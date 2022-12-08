@@ -84,7 +84,7 @@ sudo unrar x 04bd3419b22b9cc5c6efac2c6528100d_HIST_PAINEL_COVIDBR_06jul2021
 
 ### **Avançado**
 
-Link para visualizar o desafio avançado completo: [Desafio_Completo_Avançado]([Projeto_Final_Spark_Avancado.pdf](https://github.com/JessicaAndretto/Desafio_Semantix_Data_Engineer/blob/5e856a62c1539359f40e2ffce71365a93757ed64/Projeto_Final_Spark_Desafio_Avancado.pdf))
+Link para visualizar o desafio avançado completo: [Desafio_Completo_Avançado](https://github.com/JessicaAndretto/Desafio_Semantix_Data_Engineer/blob/5e856a62c1539359f40e2ffce71365a93757ed64/Projeto_Final_Spark_Desafio_Avancado.pdf)
 
 #### **Atividade a serem realizadas:**
 
