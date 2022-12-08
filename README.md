@@ -20,10 +20,11 @@ O projeto baseou-se nas seguintes atividades abaixo:
 8. Salvar a visualização do exercício 6 em um tópico no Elastic;
 9. Criar um dashboard no Elastic para visualização dos novos dados enviados.
 
-Link para visualizar o desafio completo: [Desafio_Completo](https://github.com/JessicaAndretto/Desafio_Semantix_Data_Engineer/blob/c2ae36ab5bbd9d77f8711f3de570d147bf0e2d26/Projeto_Final_Spark_Desafio.pdf)
+Link para visualizar o desafio básico completo: [Desafio_Completo_Básico](https://github.com/JessicaAndretto/Desafio_Semantix_Data_Engineer/blob/c2ae36ab5bbd9d77f8711f3de570d147bf0e2d26/Projeto_Final_Spark_Desafio.pdf)
 
 ## **Desenvolvimento do projeto**
 
+### **Básico**
 Para o desenvolvimento do projeto foi criado um ambiente de desenvolvimento utilizando o docker no Windows por meio da utilização do Windows Subsystem for Linux (WSL) 2 com a distribuição Linux Ubuntu 22.04.1 LTS.
 
 Arquivo de configuração e inicialização do docker-compose: [Docker-Compose.yml](https://github.com/JessicaAndretto/Desafio_Semantix_Data_Engineer/blob/90b2eea0847a7d2df458137170f4e48a2ed06f99/docker-compose.yml)
@@ -80,3 +81,37 @@ sudo curl -O https://mobileapps.saude.gov.br/esus\
 ```bash
 sudo unrar x 04bd3419b22b9cc5c6efac2c6528100d_HIST_PAINEL_COVIDBR_06jul2021
 ```
+
+### **Avançado**
+
+Link para visualizar o desafio avançado completo: [Desafio_Completo_Avançado]([Projeto_Final_Spark_Avancado.pdf](https://github.com/JessicaAndretto/Desafio_Semantix_Data_Engineer/blob/5e856a62c1539359f40e2ffce71365a93757ed64/Projeto_Final_Spark_Desafio_Avancado.pdf))
+
+#### **Atividade a serem realizadas:**
+
+O projeto baseou-se nas seguintes atividades abaixo:
+
+1. Consumo da API de Elastic: https://imunizacao-es.saude.gov.br/desc-imunizacao;
+2. Criar visualizações com os dados obtidos.
+
+Para o consumo da API, foi verificado inicialmente o [manual disponível](https://opendatasus.saude.gov.br/dataset/8e0c325d-2586-4b11-8925-4ba51acd6e6d/resource/84707ab9-8497-4f2f-8a0d-b873489a63bf/download/manual_api_vacina_covid-19.pdf) para o consumo da API pelo Postman. O Postman foi a ferramente utilizada para testar o serviço RESTful, enviando a requisição http e fazendo uma análise do seu retorno.
+
+![postman](https://user-images.githubusercontent.com/108701928/206442571-8dc88d53-a755-4baf-9e27-23daca11ecd5.png)
+
+Assim como a realização do teste, o Postman disponibiliza um código de requisição da API, conforme a linguagem de programação a ser utilizada. Dessa forma, o código da requisição para a linguagem python ficou:
+```Python
+import requests
+import json
+
+url = "https://imunizacao-es.saude.gov.br/_search?scroll=1m"
+
+payload = json.dumps({
+  "size": 10000
+})
+headers = {
+  'Authorization': 'Basic aW11bml6YWNhb19wdWJsaWM6cWx0bzV0JjdyX0ArI1Rsc3RpZ2k=',
+  'Content-Type': 'application/json'
+}
+
+response = requests.request("GET", url, headers=headers, data=payload)
+```
+Foi utilizado para resolução do desafio o mesmo cluster apresentado no desenvolvimento do projeto básico. A partir do container do jupyter-spark, foi realizado o acesso do jupyter notebook pelo browser com o link: http://localhost:8889 para o desenvolvimento do desafio.
